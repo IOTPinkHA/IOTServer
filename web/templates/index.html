@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'styles/base.css')}}" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript" charset="utf-8">
+        var socket = io();
+        socket.on('connect', function() {
+            socket.emit('my event', {data: 'I\'m connected!'});
+        });
+        socket.on('data', (data) => {
+            console.log(data)
+        });
+    </script>
+    <div class="body">
+        <div class="wrapper">
+            <h1 class="header">Welcome!</h1>
+            <div class="btn-wrapper-column">
+                <a class="btn-max" href="/home">
+                    <button class="btn btn-max red">Điểm danh</button>
+                </a>
+                <a class="btn-max">
+                    <button class="btn btn-max blue" onclick="handleCheckPass()">Thêm mẫu mới</button>
+                </a>
+            </div>
+    <!--        <img src="{{url_for('Control.recognize')}}" width="50%"/>-->
+        </div>
+    </div>
+    <div id="pop-up" class="pop-up hidden">
+        <h2 class="header-small">Vui lòng nhập mật khẩu</h2>
+        <input id="password-input" type="password" name="password" onfocus="handleFocus()"/>
+        <div id="password" class="hidden">{{ password }}</div>
+        <div class="btn-wrapper-row">
+            <button class="btn red" onclick="handleQuit()">Quay lại</button>
+            <button class="btn blue" onclick="handleSubmit()">Xác nhận</button>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+</html>

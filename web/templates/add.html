@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{{url_for('static', filename = 'styles/base.css')}}" />
+</head>
+<body>
+    <div class="body">
+        {% if input_name: %}
+            <form action="/add" method="post">
+                <div class="wrapper wrapper-small">
+                    <div>
+                        <h2 class="header-small">Thêm người dùng mới</h2>
+                    </div>
+                    <div class="wrapper-input">
+                        <label class="label">Nhập mã sinh viên</label>
+                        <input type="text" name="userId">
+                    </div>
+                    <button class="btn red small">Thêm</button>
+                </div>
+            </form>
+        {% endif %}
+        {% if not input_name: %}
+            <div class="wrapper wrapper-medium">
+                <div class="cam-detect">
+                    <img  src="{{url_for('Control.add_new_person')}}"/>
+                </div>
+                <a href="/">
+                    <button class="btn absolute blue">Hoàn thành</button>
+                </a>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

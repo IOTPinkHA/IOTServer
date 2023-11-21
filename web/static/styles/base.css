@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+:root {
+    --primary-color: rgb(93, 156, 89);
+    --black: #343434;
+    --dark: #000;
+    --white: #fff;
+    --grey: #F1F0E8;
+    --text-color: #333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+html *::-webkit-scrollbar {
+    border-radius: 0;
+    width: 8px;
+    height: 8px;
+}
+
+html *::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgb(22 24 35/0.16);
+}
+
+html *::-webkit-scrollbar-track {
+    border-radius: 0;
+    background-color: rgb(0 0 0 /0);
+}
+
+html ::selection {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+input {
+    padding: 1.5rem 2rem;
+    outline: none;
+    border: 1px solid var(--text-color);
+    border-radius: 4px;
+    width: 100%;
+    font-size: 1.6rem;
+}
+
+.body {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(60deg, #D80032, #00A9FF);
+    background-repeat: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.wrapper {
+    min-width: 50rem;
+    min-height: 40rem;
+    width: 20vw;
+    height: 30vh;
+    padding: 5rem;
+    background-color: var(--white);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 5px 5px 20px var(--text-color);
+    gap: 8rem;
+}
+
+.wrapper-small {
+    width: 55vh;
+    height: 30vh;
+    min-width: 20rem;
+    min-height: 15rem;
+    padding: 2.5rem 3rem;
+    gap: 2rem;
+    justify-content: space-between;
+}
+
+.wrapper-large {
+    width: 70vw;
+    height: 65vh;
+    flex-direction: row;
+}
+
+.wrapper-medium {
+    width: 40vw;
+    height: 70vh;
+    position: relative;
+}
+
+.header {
+    font-size: 5rem;
+    color: #00A9FF;
+}
+
+.header-small {
+    font-size: 2rem;
+    color: var(--text-color);
+}
+
+.pop-up {
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    width: 22vw;
+    height: 18vh;
+    min-width: 40vw;
+    min-height: 30vh;
+    padding: 2rem 8rem;
+    background-color: var(--white);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    box-shadow: 5px 5px 20px var(--text-color);
+    z-index: 100;
+}
+
+.hidden {
+    display: none;
+}
+
+.btn-wrapper-column {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.btn-wrapper-row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.btn {
+    padding: 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.6rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-max {
+    min-width: 100%;
+}
+
+.small {
+    padding: 1rem 1.5rem;
+}
+
+.blue {
+    color: var(--white);
+    background-color: #00A9FF;
+}
+
+.red {
+    color: var(--white);
+    background-color: #D80032;
+}
+
+#password {
+    padding: 1rem 2rem;
+    outline: none;
+    border: 1px solid var(--text-color);
+    border-radius: 4px;
+    width: 100%;
+    font-size: 2rem;
+}
+
+#password-input::placeholder {
+    color: red;
+    font-style: italic;
+    font-size: 1.4rem;
+}
+
+.camera {
+    width: 60%;
+}
+
+.cam-detect {
+    width: 100%;
+}
+
+.scene {
+    width: 100%;
+    border-radius: 8px;
+    border: 5px solid #D80032;
+}
+
+.info {
+    width: 40%;
+    height: 95%;
+    border-radius: 8px;
+    border: 1px solid #00A9FF;
+}
+
+.label {
+    position: absolute;
+    top: -1rem;
+    left: 1rem;
+    font-size: 1.3rem;
+    background-color: var(--white);
+    padding: 0 1rem;
+}
+
+.wrapper-input {
+    position: relative;
+    width: 100%;
+}
+
+.absolute {
+    position: absolute;
+    bottom: -6.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 5px 5px 10px var(--text-color);
+    width: 100%;
+}
