@@ -1,5 +1,3 @@
-import time
-
 import paho.mqtt.client as paho
 import cv2
 import os
@@ -19,8 +17,10 @@ def recognize_faces():
     while True:
         im, gray, faces = get_frames()
 
+        im = cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
+
         for (x, y, w, h) in faces:
-            color = (69, 53, 220)
+            color = (220, 53, 69)
             cv2.rectangle(im, (x, y), (x + w, y + h), color, 2)
 
             user_id = 'unknown'
@@ -32,7 +32,7 @@ def recognize_faces():
                 if confidence < 100:
                     check = True
                     print(user_id)
-                    color = (40, 167, 69)
+                    color = (69, 167, 40)
                     if user_id - 1 < len(names):
                         user_id = names[user_id - 1]
                         data = {
@@ -53,8 +53,9 @@ def recognize_faces():
             if check:
                 ch = int(h / 2)
                 cw = int(w / 2)
-                cv2.putText(im, "Checked!!!", (x + cw, y + ch), font, 1, (69, 53, 220), 2)
+                cv2.putText(im, "Checked!!!", (x + cw, y + ch), font, 1, (220, 53, 69), 2)
 
+        im = cv2.cvtColor(im, cv2.COLOR_RGB2BGR)
         im = cv2.imencode('.jpg', im)[1].tobytes()
 
         yield (b'--frame\r\n'

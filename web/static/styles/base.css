@@ -90,15 +90,17 @@ input {
 }
 
 .wrapper-large {
-    width: 70vw;
-    height: 65vh;
+    width: 35vw;
+    height: 60vh;
+    padding: 1rem 2rem;
     flex-direction: row;
 }
 
 .wrapper-medium {
     width: 40vw;
-    height: 70vh;
+    height: 63vh;
     position: relative;
+    padding: 1rem 2rem;
 }
 
 .header {
@@ -193,7 +195,7 @@ input {
 }
 
 .camera {
-    width: 60%;
+    width: 100%;
 }
 
 .cam-detect {

@@ -4,7 +4,7 @@ import numpy as np
 import cv2
 from cv2 import data
 
-url = 'http://192.168.1.29/cam-mid.jpg'
+url = 'http://172.20.10.2/cam-mid.jpg'
 
 recognizer = cv2.face.LBPHFaceRecognizer_create()
 faceDetector = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
