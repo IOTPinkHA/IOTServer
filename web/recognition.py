@@ -29,10 +29,10 @@ def recognize_faces():
             if len(os.listdir('trainer')) > 0:
                 user_id, confidence = recognizer.predict(gray[y: y + h, x: x + w])
 
-                if confidence < 100:
+                if confidence < 80:
                     check = True
                     print(user_id)
-                    color = (69, 167, 40)
+                    color = (0, 255, 0)
                     if user_id - 1 < len(names):
                         user_id = names[user_id - 1]
                         data = {
@@ -44,16 +44,17 @@ def recognize_faces():
                         cv2.rectangle(im, (x, y), (x + w, y + h), color, 2)
                         confidence = "{0}%".format(round(confidence))
                 else:
+                    check = False
                     user_id = 'unknown'
                     confidence = ''
 
             cv2.putText(im, str(user_id), (x, y - 5), font, 1, color, 2)
-            cv2.putText(im, confidence, (x, y + h - 5), font, 1, color, 2)
+            cv2.putText(im, str(confidence), (x, y + h - 5), font, 1, color, 2)
 
             if check:
                 ch = int(h / 2)
-                cw = int(w / 2)
-                cv2.putText(im, "Checked!!!", (x + cw, y + ch), font, 1, (220, 53, 69), 2)
+                cw = int(w / 3)
+                cv2.putText(im, "Checked!!!", (x + cw, y + h - 5), font, 1, (255, 0, 0), 2)
 
         im = cv2.cvtColor(im, cv2.COLOR_RGB2BGR)
         im = cv2.imencode('.jpg', im)[1].tobytes()

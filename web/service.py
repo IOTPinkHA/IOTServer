@@ -4,6 +4,8 @@ import numpy as np
 import cv2
 from cv2 import data
 
+temp = ""
+
 url = 'http://172.20.10.2/cam-mid.jpg'
 
 recognizer = cv2.face.LBPHFaceRecognizer_create()
