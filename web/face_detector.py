@@ -1,5 +1,6 @@
 import cv2
 import os
+import asyncio
 
 from service import get_frames
 from traning import training
@@ -18,7 +19,7 @@ def face_detector(userId):
     os.mkdir(path)
 
     while True:
-        im, gray, faces = get_frames()
+        im, gray, faces = asyncio.run(get_frames())
 
         for (x, y, w, h) in faces:
             cv2.rectangle(im, (x, y), (x + w, y + h), (0, 0, 255), 2)

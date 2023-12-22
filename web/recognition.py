@@ -3,6 +3,7 @@ import cv2
 import os
 from datetime import datetime
 import json
+import asyncio
 
 from service import get_users, get_frames, recognizer, font
 
@@ -15,7 +16,7 @@ def recognize_faces():
         recognizer.read('trainer/trainer.yml')
     check = False
     while True:
-        im, gray, faces = get_frames()
+        im, gray, faces = asyncio.run(get_frames())
 
         im = cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
 
